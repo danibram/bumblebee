@@ -2,7 +2,7 @@
   "name": "bumblebee",
   "description": "Object transformation tool inspired on mongoose models.",
   "version": "0.1.0",
-  "homepage": "https://github.com/dani/bumblebee",
+  "homepage": "https://github.com/danibram/bumblebee",
   "author": {
     "name": "Daniel Biedma Ramos",
     "email": "nemz00@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dani/bumblebee.git"
+    "url": "git://github.com/danibram/bumblebee.git"
   },
   "bugs": {
-    "url": "https://github.com/dani/bumblebee/issues"
+    "url": "https://github.com/danibram/bumblebee/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/dani/bumblebee/blob/master/LICENSE-MIT"
+      "url": "https://github.com/danibram/bumblebee/blob/master/LICENSE-MIT"
     }
   ],
   "main": "lib/bumblebee",
@@ -29,7 +29,6 @@
     "test": "grunt mochaTest"
   },
   "devDependencies": {
-    "assert": "~1.1.1",
     "grunt": "~0.4.5",
     "grunt-blanket": "~0.0.8",
     "blanket": "~1.1.6",
@@ -40,7 +39,12 @@
     "grunt-shell": "~0.7.0",
     "coveralls": "~2.10.0",
     "istanbul": "~0.2.8",
-    "mocha": "~1.20.1"
+    "chai": "*",
+    "mocha": "*"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "async": "^0.9.0",
+    "object-cleaner": "^0.1.2"
+  }
 }
