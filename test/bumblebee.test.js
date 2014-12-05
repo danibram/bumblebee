@@ -18,25 +18,67 @@ describe('bumblebee', function() {
             {cod1: '333', cod2:'11'},
             {cod1: '444', cod2:'22'},
             {cod1: '555', cod2:'22'}
-        ]
+        ],
+        imgGroups:{
+            code: '1',
+            images:
+               [ { date: '02/11/2011',
+                   source: 'files/public//0/5/6/3/Images/13202301045141.jpg',
+                   uri: 'http://images.xtravelsystem.com/slide/files/public//0/5/6/3/Images/13202301045141.jpg' },
+                 { date: '02/11/2011',
+                   source: 'files/public//0/5/6/3/Images/13202301045952.jpg',
+                   uri: 'http://images.xtravelsystem.com/slide/files/public//0/5/6/3/Images/13202301045952.jpg' },
+                 { date: '02/11/2011',
+                   source: 'files/public//0/5/6/3/Images/13202301046753.jpg',
+                   uri: 'http://images.xtravelsystem.com/slide/files/public//0/5/6/3/Images/13202301046753.jpg' },
+                 { date: '02/11/2011',
+                   source: 'files/public//0/5/6/3/Images/13202301052654.jpg',
+                   uri: 'http://images.xtravelsystem.com/slide/files/public//0/5/6/3/Images/13202301052654.jpg' },
+                 { date: '02/11/2011',
+                   source: 'files/public//0/5/6/3/Images/13202301053355.jpg',
+                   uri: 'http://images.xtravelsystem.com/slide/files/public//0/5/6/3/Images/13202301053355.jpg' },
+                 { date: '02/11/2011',
+                   source: 'files/public//0/5/6/3/Images/13202301054156.jpg',
+                   uri: 'http://images.xtravelsystem.com/slide/files/public//0/5/6/3/Images/13202301054156.jpg' } ]
+        }
     };
 
     var model = {
-        name: {type: 'String', originField: 'Name'},
-        code: {type: 'Integer', originField: 'number'},
-        active: {type: 'Boolean', originField: 'Active'},
-        images: {type: 'Array', composer:{type: 'RegEx', reg: 'image', use: 'value'}},
-        latitud: {type: 'Float'},
-        maybeValue: {type: 'Integer', default: 0},
+        name: {format: 'String', originField: 'Name'},
+        code: {format: 'Integer', originField: 'number'},
+        active: {format: 'Boolean', originField: 'Active'},
+        images: {
+            format: 'Array',
+            originField: 'root',
+            composer:{
+                type: 'RegEx',
+                reg: 'image',
+                use: 'value'
+            }
+        },
+        latitud: {format: 'Float'},
+        maybeValue: {format: 'Integer', default: 0},
         propertyCodes: {
-            type: 'Array',
+            format: 'Array',
             originField: 'codes',
             composer:{
                 type: 'everyElement',
-                scheema: {
-                    providerCode: {type: 'String', originField: 'cod1'},
-                    providerType: {type: 'String', originField: 'cod2'}
+                scheema:{
+                    propertyOne: { originField:'cod1', format: 'Integer'},
+                    propertyTwo: { originField:'cod2', format: 'Integer' }
                 }
+            }
+        },
+        samePropertyCodes:{
+            originField: 'codes'
+        },
+        images2: {
+            format: 'Array',
+            originField: 'imgGroups.images',
+            composer:{
+                type: 'everyElement',
+                originField: 'uri',
+                format: 'String'
             }
         }
     };
