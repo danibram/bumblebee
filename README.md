@@ -1,4 +1,4 @@
-# bumblebee   [![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumblebee_%288023382295%29.jpg/320px-Bumblebee_%288023382295%29.jpg =150x100)](http://travis-ci.org/danibram/bumblebee) 
+# bumblebee   [![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumblebee_%288023382295%29.jpg/320px-Bumblebee_%288023382295%29.jpg =150x100)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumblebee_%288023382295%29.jpg/320px-Bumblebee_%288023382295%29.jpg =150x100)
  [![Build Status](https://secure.travis-ci.org/danibram/bumblebee.png?branch=master)](http://travis-ci.org/danibram/bumblebee) [![Coverage Status](https://coveralls.io/repos/danibram/bumblebee/badge.png?branch=master)](https://coveralls.io/r/danibram/bumblebee?branch=master) [![Dependency Status](https://david-dm.org/danibram/bumblebee.svg)](https://david-dm.org/danibram/bumblebee)
 
 Object transformation tool inspired on mongoose models. The idea is to little by little create some rules and new functionalities.
