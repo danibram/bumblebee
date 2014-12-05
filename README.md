@@ -1,14 +1,17 @@
-# bumblebee   [![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumblebee_%288023382295%29.jpg/320px-Bumblebee_%288023382295%29.jpg =150x100)](http://travis-ci.org/danibram/bumblebee)
+# bumblebee   [![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumblebee_%288023382295%29.jpg/320px-Bumblebee_%288023382295%29.jpg =150x100)](http://travis-ci.org/danibram/bumblebee) 
  [![Build Status](https://secure.travis-ci.org/danibram/bumblebee.png?branch=master)](http://travis-ci.org/danibram/bumblebee) [![Coverage Status](https://coveralls.io/repos/danibram/bumblebee/badge.png?branch=master)](https://coveralls.io/r/danibram/bumblebee?branch=master) [![Dependency Status](https://david-dm.org/danibram/bumblebee.svg)](https://david-dm.org/danibram/bumblebee)
 
-Object transformation tool inspired on mongoose models.
+Object transformation tool inspired on mongoose models. The idea is to little by little create some rules and new functionalities.
 
 ## Getting Started
 Install the module with: `npm install bumblebee`
 
 ```javascript
-var bumblebee = new require('bumblebee');
-bumblebee.execute(); // "awesome"
+var bumble = require('bumblebee');
+bumble(initialObject, referenceObj, model, function(err, result){
+            console.log(result);
+            done(err, result);
+        });
 ```
 
 ## Documentation
@@ -53,9 +56,9 @@ var refObj = {
         }
     };
   ```
-
+  
   Passing this 2 objects the module reconstruct this in the output:
-
+  
   ```javascript
   { name: 'dummy',
   code: 1243,
