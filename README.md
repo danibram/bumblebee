@@ -2,14 +2,14 @@
 
 [![Bumblebee javascript object transformation tool](http://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumblebee_%288023382295%29.jpg/320px-Bumblebee_%288023382295%29.jpg)](https://github.com/danibram/bumblebee)
 
-# bumblebee  
- 
+# bumblebee
+
 Object transformation tool inspired on mongoose models. The basic idea is to contruct a result object, form a model and a reference object (and also you can pass an object as base).
 ## Getting Started
 Install the module with: `npm install bumblebee`
 
 ```javascript
-var bumble = require('bumblebee');
+var bumble = require('bumblebee-object-transformation');
 bumble(initialObject, referenceObj, model, function(err, result){
             console.log(result);
             done(err, result);
@@ -58,9 +58,9 @@ var refObj = {
         }
     };
   ```
-  
+
   Passing this 2 objects the module reconstruct this in the output:
-  
+
   ```javascript
   { name: 'dummy',
   code: 1243,
