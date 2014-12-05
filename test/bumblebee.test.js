@@ -43,6 +43,8 @@ describe('bumblebee', function() {
 
     it('Should be awesome', function(done) {
         bumble({}, refObj, model, function(err, result){
+            console.log(refObj);
+            console.log(model);
             console.log(result);
             done(err, result);
         });
