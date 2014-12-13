@@ -39,35 +39,37 @@ Remember that this module is underconstruction, if you have some needs try to fo
 ###_(From 0.3.0 Examples)_
 ```javascript
     initialObject = {};
-    referenceObject = {
-        'title' : "title",
-        'text': "hey im a text",
+    var referenceObject = {
+        'title' : 'title',
+        'text': 'hey im a text',
         'position' : [ 41.3901566, 2.1355214 ],
-        'you : {
+        'you' : {
             'video' : {
-                active: true,
-                times: 4,
-                information:{
-                    duration: 10,
-                    format: 'min'
+                'active': true,
+                'times': 4,
+                'information':{
+                    'duration': 10,
+                    'format': 'min'
                 }
             }
         },
-        youtube:{
-            expiration: "DATE",
-            expirationTimezone: "GMT+1"
+        'youtube':{
+            'expiration': 'DATE',
+            'expirationTimezone': 'GMT+1'
         },
-        buyNowConfig: {
-            price: 100
+        'buyNowConfig': {
+            'price': 100
         },
-        images:[
-            { url: 'http://lkjljklkj/123'},
-            { url: 'http://lkjljklkj/456'},
-            { url: 'http://lkjljklkj/678'},
-            { url: 'http://lkjljklkj/999'},
-        ]
-    }
-    model = {
+        'product':{
+            'images':[
+                { url: 'http://lkjljklkj/123'},
+                { url: 'http://lkjljklkj/456'},
+                { url: 'http://lkjljklkj/678'},
+                { url: 'http://lkjljklkj/999'},
+            ]
+        }
+    };
+    var model = {
         'position': {
             __format: 'Object',
             __scheema: {
@@ -89,47 +91,53 @@ Remember that this module is underconstruction, if you have some needs try to fo
             __scheema: {
                 'title': { __format: 'Object' },
                 'text': { __format: 'Object' },
-                'imagePath': { __format: 'String', __originField: 'images.0.url', outputMod: function (url) { return url+ ".jpg"; } }
+                'imagePath': { __format: 'String', __originField: 'images.0.url', __outputMod: function (url) { return url+ ".jpg" } },
                 'buyNowPrice': { __format: 'Float', __originField: 'buyNowConfig.price' }
             }
         },
-        images : {
+        'images' : {
             __format: 'Array',
-            __originField: 'data.galleryImages',
+            __originField: 'product.images',
             __composer:{
                 __type: 'everyElement',
                 __scheema: {
-                    type: { __format: 'String', __default: 'internal' },
-                    fullUrl: { __format: 'String', __originField: 'url', __outputMod: function (url) { return url+ ".jpg"; } }
+                    'type': { __format: 'String', __default: 'internal' },
+                    'fullUrl': { __format: 'String', __originField: 'url', __outputMod: function (url) { return url+ ".jpg" } }
                 }
             }
         },
-    }
+    };
 ```
   Passing this 2 objects the module reconstruct this in the output:
 ```javascript
-  result = {
-    _id: "000001",
-      position: { lat: 41.3901566, lng: 2.1355214 },
-    youtube:{
+
+result = {
+    position: {
+        lat: 41.3901566,
+        lng: 2.1355214
+    },
+    youtube : {
         active: true,
         times: 4,
         duration: 10,
-        expiration: "DATE",
-        expirationTimezone: "GMT+1"    
+        expiration: 'DATE',
+        expirationTimezone: 'GMT+1'
     },
-    products:[{
-        'title': "title",
-        'text': "hey im a text",
-        'imagePath': 'http://lkjljklkj/123.jpg',
-        'buyNowPrice': 100
-    }],
-    images:[
-        { fullUrl: 'http://lkjljklkj/123.jpg'},
-        { fullUrl: 'http://lkjljklkj/456.jpg'},
-        { fullUrl: 'http://lkjljklkj/678.jpg'},
-        { fullUrl: 'http://lkjljklkj/999.jpg'},
+    products: [
+        {
+        title: 'title',
+        text: 'hey im a text',
+        imagePath: 'http://lkjljklkj/123.jpg',
+        buyNowPrice: 100
+        }
+    ],
+    images: [
+        { type: 'internal', fullUrl: 'http://lkjljklkj/123.jpg' },
+        { type: 'internal', fullUrl: 'http://lkjljklkj/456.jpg' },
+        { type: 'internal', fullUrl: 'http://lkjljklkj/678.jpg' },
+        { type: 'internal', fullUrl: 'http://lkjljklkj/999.jpg' }
     ]
+}
 
 ```
 ###_(From 0.2.1 Examples)_
@@ -180,7 +188,7 @@ Remember that this module is underconstruction, if you have some needs try to fo
       name: 'dummy',
       code: 1243,
       active: true,
-      images: [ 
+      images: [
         'http://urltoimage1',
         'http://urltoimage2',
         'http://urltoimage3',
@@ -192,8 +200,8 @@ Remember that this module is underconstruction, if you have some needs try to fo
         { providerCode: '111', providerType: '11' },
         { providerCode: '333', providerType: '11' },
         { providerCode: '444', providerType: '22' },
-        { providerCode: '555', providerType: '22' } 
-    ] 
+        { providerCode: '555', providerType: '22' }
+    ]
 }
 ```
 
@@ -203,7 +211,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 
 ####(0.3.0 Lastest)
-Models: 
+Models:
 - (0.3.0) _(From 0.2.1 to 0.3)_ Not more type to define the output format, simply format.
 - (0.3.0) _(From 0.2.1 to 0.3)_ All internal operators are rewrite with "__" to remove comflicts
 
