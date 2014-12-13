@@ -1,7 +1,7 @@
 {
   "name": "bumblebee-object-transformation",
   "description": "Object transformation tool inspired on mongoose models.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "homepage": "https://github.com/danibram/bumblebee",
   "author": {
     "name": "Daniel Biedma Ramos",
