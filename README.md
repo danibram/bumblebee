@@ -209,7 +209,7 @@ result = {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-####(0.3.3 Lastest)
+####(0.3.4 Lastest)
 - Added inside the everyElement of an array the posibilty to use a "__outputMod" function
 - Fixed little problem with composer and array without __scheema field.
 
