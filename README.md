@@ -209,8 +209,10 @@ result = {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+####(0.3.1 Lastest)
+- Fixed little problem with composer and array without __scheema field.
 
-####(0.3.0 Lastest)
+####(0.3.0)
 Models:
 - (0.3.0) _(From 0.2.1 to 0.3)_ Not more type to define the output format, simply format.
 - (0.3.0) _(From 0.2.1 to 0.3)_ All internal operators are rewrite with "__" to remove comflicts
