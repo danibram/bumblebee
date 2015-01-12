@@ -209,7 +209,7 @@ result = {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-####(0.3.1 Lastest)
+####(0.3.2 Lastest)
 - Fixed little problem with composer and array without __scheema field.
 
 ####(0.3.0)
