@@ -30,13 +30,15 @@ Basically you should use as model the final object, and field by field you can s
 For now the operations are:
 - RegEx : to find inside the object a fields and put in an array.
 - everyElement : to loop over the elements of an array and make the transformations
+- everyElementToArray : to loop over the elements of an array and create an object, you need to specify the key of the every element (__key)
 
+Remember that this module is underconstruction, if you have some needs try to follow the essential structure of the application, and i try to merge all request. Usully i use this module, so im adapting frecuently, and sometimes wont be really well optimized, all suggestions are welcome.
 
-Remember that this module is underconstruction, if you have some needs try to follow the essential structure of the application, and i try to merge all request. Usully i use this module, so im adapting frecuently.
+Thanks!
 
 
 ## Examples
-###_(From 0.3.0 Examples)_
+###_(From 0.3.X Examples)_
 ```javascript
     initialObject = {};
     var referenceObject = {
@@ -67,7 +69,20 @@ Remember that this module is underconstruction, if you have some needs try to fo
                 { url: 'http://lkjljklkj/678'},
                 { url: 'http://lkjljklkj/999'},
             ]
-        }
+        },
+        providers:[{
+            '$': {
+                key: 'acme',
+                type: 'company'
+            },
+            ids: ['123']
+        },{
+            '$': {
+                key: 'octo',
+                type: 'company'
+            },
+            ids: '345'
+        }]
     };
     var model = {
         'position': {
@@ -106,6 +121,24 @@ Remember that this module is underconstruction, if you have some needs try to fo
                 }
             }
         },
+        'providers' : {
+            __format: "Object",
+            __composer:{
+                __type: 'everyElementToObject',
+                __originField: 'providers',
+                __key: '$.key',
+                __scheema: {
+                    type:{
+                        __format: 'String',
+                        __originField: '$.type'
+                    },
+                    codes: {
+                        __format: 'Array',
+                        __originField: 'ids'
+                    }
+                },
+            }
+        }
     };
 ```
   Passing this 2 objects the module reconstruct this in the output:
@@ -136,7 +169,17 @@ result = {
         { type: 'internal', fullUrl: 'http://lkjljklkj/456.jpg' },
         { type: 'internal', fullUrl: 'http://lkjljklkj/678.jpg' },
         { type: 'internal', fullUrl: 'http://lkjljklkj/999.jpg' }
-    ]
+    ],
+    providers:{
+        acme: {
+            type: 'company',
+            codes: ['123']
+        },
+        octo: {
+            type: 'company',
+            codes: ['345']
+        }
+    }
 }
 
 ```
@@ -209,7 +252,8 @@ result = {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-####(0.3.6 Lastest)
+####(0.3.7 Lastest)
+- Added everyElementToObject basically its the same that every element and you need to specify the key of the object for every element
 - Added inside the everyElement of an array the posibilty to use a "__outputMod" function
 - Added inside the everyElement with __scheema the __condition function, if true the element should be inject on the final everyElement array
 - Fixed little problem with composer and array without __scheema field.

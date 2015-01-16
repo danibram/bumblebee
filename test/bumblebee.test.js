@@ -1,6 +1,7 @@
 'use strict';
-var bumble = require('../lib/bumblebee');
-var expect = require('chai').expect;
+var bumble = require('../lib/bumblebee'),
+    expect = require('chai').expect,
+    util = require('util');
 
 describe('bumblebee', function() {
 
@@ -32,7 +33,20 @@ describe('bumblebee', function() {
                 { url: 'http://lkjljklkj/678'},
                 { url: 'http://lkjljklkj/999'},
             ]
-        }
+        },
+        providers:[{
+            '$': {
+                key: 'acme',
+                type: 'company'
+            },
+            ids: ['123']
+        },{
+            '$': {
+                key: 'octo',
+                type: 'company'
+            },
+            ids: '345'
+        }]
     };
     var model = {
         'position': {
@@ -71,11 +85,29 @@ describe('bumblebee', function() {
                 }
             }
         },
+        'providers' : {
+            __format: "Object",
+            __composer:{
+                __type: 'everyElementToObject',
+                __originField: 'providers',
+                __key: '$.key',
+                __scheema: {
+                    type:{
+                        __format: 'String',
+                        __originField: '$.type'
+                    },
+                    codes: {
+                        __format: 'Array',
+                        __originField: 'ids'
+                    }
+                },
+            }
+        }
     };
 
     it('Should be awesome', function(done) {
         bumble({}, referenceObject, model, function(err, result){
-            console.log(result);
+            console.log(util.inspect(result,{depth: 5}));
             done(err, result);
         });
     });
