@@ -252,7 +252,7 @@ result = {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-####(0.3.8 Lastest)
+####(0.3.9 Lastest)
 - Added everyElementToObject basically its the same that every element and you need to specify the key of the object for every element
 - Added inside the everyElement of an array the posibilty to use a "__outputMod" function
 - Added inside the everyElement with __scheema the __condition function, if true the element should be inject on the final everyElement array
