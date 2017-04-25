@@ -4,6 +4,8 @@
 
 # bumblebee
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/danibram/bumblebee.svg)](https://greenkeeper.io/)
+
 Object transformation tool inspired on mongoose models. The basic idea is to contruct a result object, form a model and a reference object (and also you can pass an object as base).
 
 ## Getting Started
